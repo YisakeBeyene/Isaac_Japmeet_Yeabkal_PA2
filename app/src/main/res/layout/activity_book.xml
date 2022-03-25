@@ -1,111 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BookActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".BookActivity">
 
-    <TextView
-        android:id="@+id/title_textview"
+    <RelativeLayout
+        android:id="@+id/add_book_relativelayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title: Pride and Prejudice"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="80dp"
-        android:padding="10dp"
-        android:layout_marginEnd="12dp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Author: Jane Austen"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginStart="12dp"
-        android:padding="10dp"
-        android:layout_marginEnd="12dp"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DELETE BOOK"
-        android:layout_marginStart="20dp"
-        android:padding="10dp"
-        android:backgroundTint="@color/teal_700"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Title: "
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginStart="12dp"
-            android:padding="10dp"/>
-
-        <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/title_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Book Name"
-            android:layout_marginEnd="12dp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:padding="10dp"
+            android:text="Title: Pride and Prejudice"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Author: "
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:layout_marginStart="12dp"
-            android:padding="10dp"/>
-
-        <EditText
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Author Name"
-            android:layout_marginEnd="12dp"/>
-    </LinearLayout>
+            android:layout_below="@+id/title_textview"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:padding="10dp"
+            android:text="Author: Jane Austen"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="UPDATE BOOK"
-        android:layout_marginStart="20dp"
-        android:padding="10dp"
-        android:backgroundTint="@color/teal_700"/>
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView4"
+            android:layout_marginStart="25dp"
+            android:backgroundTint="@color/teal_700"
+            android:padding="10dp"
+            android:text="DELETE BOOK" />
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/button"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:padding="10dp"
+                android:text="Title: "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:ems="10"
+                android:hint="Book Name"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:padding="10dp"
+                android:text="Author: "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:hint="Author Name"
+                tools:ignore="TouchTargetSizeCheck" />
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_marginStart="25dp"
+            android:backgroundTint="@color/teal_700"
+            android:padding="10dp"
+            android:text="UPDATE BOOK" />
+    </RelativeLayout>
 
     <Button
         android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancle"
-        android:layout_marginStart="20dp"
-        android:padding="10dp"
         android:backgroundTint="#ba160c"
-        android:layout_gravity="center"
-        android:layout_marginTop="280dp"/>
+        android:padding="10dp"
+        android:text="Cancle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
 
 
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
