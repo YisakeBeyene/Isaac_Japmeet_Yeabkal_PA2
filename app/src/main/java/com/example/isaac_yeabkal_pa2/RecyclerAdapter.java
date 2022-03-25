@@ -37,11 +37,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder holder, int position) {
 
+        //Edit with database information
         holder.textView.setText(data[position]);
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //Edit with passing the id of the book to the next page
                 Intent intent = new Intent(context, BookActivity.class);
+                intent.putExtra("MONTH", data[holder.getAdapterPosition()]);
                 context.startActivity(intent);
             }
         });
