@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:cardCornerRadius="15dp"
+        app:cardBackgroundColor="@color/teal_700">
+
+        <TextView
+            android:id="@+id/movieNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pride and Predjudice"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:layout_marginTop="6dp"/>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
