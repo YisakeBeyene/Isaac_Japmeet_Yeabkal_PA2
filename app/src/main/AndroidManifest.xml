@@ -11,9 +11,13 @@
         android:theme="@style/Theme.Isaac_Yeabkal_PA2">
         <activity
             android:name=".AddNewBook"
+            android:parentActivityName=".MainActivity"
+            android:label="Add New Book"
             android:exported="false" />
         <activity
             android:name=".BookActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Book Page"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

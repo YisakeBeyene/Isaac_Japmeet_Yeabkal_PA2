@@ -10,11 +10,16 @@ import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     RecyclerAdapter adapter;
     FloatingActionButton fab;
+
+    BookSQLiteHelper myDB;
+    ArrayList<Book> listOfBooks;
 
     String monthNames[] = {"January","February","March","April","May","June","July","August","September","October","November","December",
             "January","February","March","April","May","June","July",  "August","September","October","November","December"};
@@ -30,13 +35,30 @@ public class MainActivity extends AppCompatActivity {
         adapter = new RecyclerAdapter(this, monthNames);
         recyclerView.setAdapter(adapter);
 
+        listOfBooks = new ArrayList<>();
+        myDB = new BookSQLiteHelper(MainActivity.this);
+        listOfBooks = myDB.getAllBooks();
+        printListOfBooks(listOfBooks);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                printListOfBooks(listOfBooks);
                 Intent intent = new Intent(MainActivity.this, AddNewBook.class);
                 startActivity(intent);
             }
         });
+
+    }
+
+    private void printListOfBooks(ArrayList<Book> listOfBooks) {
+
+        for(int i=0; i<listOfBooks.size(); i++){
+            Book book = listOfBooks.get(i);
+            System.out.println("Book at index " + i);
+            System.out.println("Book at index " + book.getTitle());
+            System.out.println("Book at index " + book.getAuthor());
+        }
 
     }
 }

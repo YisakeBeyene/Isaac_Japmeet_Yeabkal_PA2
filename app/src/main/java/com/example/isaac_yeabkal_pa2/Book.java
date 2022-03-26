@@ -2,9 +2,9 @@ package com.example.isaac_yeabkal_pa2;
 
 public class Book {
 
-    int id;
-    String title;
-    String author;
+    private int id;
+    private String title;
+    private String author;
 
     public Book(String title, String author) {
         this.title = title;
