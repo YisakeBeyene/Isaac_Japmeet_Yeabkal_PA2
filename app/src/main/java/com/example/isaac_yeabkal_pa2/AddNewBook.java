@@ -19,7 +19,7 @@ public class AddNewBook extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_book);
 
-        etTitle = (EditText) findViewById(R.id.editTextTitle);
+        etTitle = (EditText) findViewById(R.id.update_title_editText);
         etAuthor = (EditText) findViewById(R.id.editTextAuthor);
         cancleButton = (Button) findViewById(R.id.cancel_button_newbook);
         addBookButton = (Button) findViewById(R.id.add_book_button);
@@ -31,6 +31,8 @@ public class AddNewBook extends AppCompatActivity {
                 Book newBook = new Book(etTitle.getText().toString().trim(),
                         etAuthor.getText().toString().trim());
                 myDB.addBook(newBook);
+                Intent intent = new Intent(AddNewBook.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

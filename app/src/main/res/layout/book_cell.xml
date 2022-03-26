@@ -13,7 +13,7 @@
         app:cardBackgroundColor="@color/teal_700">
 
         <TextView
-            android:id="@+id/movieNameTv"
+            android:id="@+id/bookNameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pride and Predjudice"

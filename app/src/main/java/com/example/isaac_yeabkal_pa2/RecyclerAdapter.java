@@ -6,18 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>
 {
 
-    String data[];
+    ArrayList<Book> data;
     Context context;
 
-    public RecyclerAdapter( Context context, String[] data) {
+    public RecyclerAdapter( Context context, ArrayList<Book> data) {
         this.data = data;
         this.context = context;
     }
@@ -38,13 +39,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder holder, int position) {
 
         //Edit with database information
-        holder.textView.setText(data[position]);
+        Book book = data.get(position);
+        holder.textView.setText(String.valueOf(book.getTitle()));
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //Edit with passing the id of the book to the next page
                 Intent intent = new Intent(context, BookActivity.class);
-                intent.putExtra("MONTH", data[holder.getAdapterPosition()]);
+                intent.putExtra("BOOK", book);
                 context.startActivity(intent);
             }
         });
@@ -53,7 +55,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return data.length;
+        return data.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder
@@ -62,7 +64,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textView = itemView.findViewById(R.id.movieNameTv);
+            textView = itemView.findViewById(R.id.bookNameTv);
 
         }
     }

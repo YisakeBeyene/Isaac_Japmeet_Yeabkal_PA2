@@ -32,12 +32,13 @@ public class MainActivity extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab);
         recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RecyclerAdapter(this, monthNames);
-        recyclerView.setAdapter(adapter);
-
         listOfBooks = new ArrayList<>();
         myDB = new BookSQLiteHelper(MainActivity.this);
         listOfBooks = myDB.getAllBooks();
+        adapter = new RecyclerAdapter(this, listOfBooks);
+        recyclerView.setAdapter(adapter);
+
+
         printListOfBooks(listOfBooks);
 
         fab.setOnClickListener(new View.OnClickListener() {

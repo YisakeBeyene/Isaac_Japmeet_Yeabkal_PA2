@@ -33,7 +33,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/authorTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title_textview"
@@ -46,10 +46,10 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/delete_book_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView4"
+            android:layout_below="@+id/authorTextView"
             android:layout_marginStart="25dp"
             android:backgroundTint="@color/teal_700"
             android:padding="10dp"
@@ -60,7 +60,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/button"
+            android:layout_below="@id/delete_book_button"
             android:orientation="horizontal">
 
             <TextView
@@ -74,7 +74,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/editTextTitle"
+                android:id="@+id/update_title_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
@@ -102,6 +102,7 @@
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/update_author_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
@@ -111,7 +112,7 @@
 
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/update_book_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout2"

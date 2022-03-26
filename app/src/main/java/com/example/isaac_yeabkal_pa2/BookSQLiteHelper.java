@@ -98,10 +98,22 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
     }
 
     public void updateBook(Book book) {
+        db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
 
+        cv.put(KEY_ROWTITLE, book.getTitle());
+        cv.put(KEY_ROWAUTHOR, book.getAuthor());
+
+        long result = db.update(TABLE_NAME, cv, "_id=?", new String[] {String.valueOf(book.getId())});
+        if(result == -1){
+            Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
+        }else {
+            Toast.makeText(context, "Successfull", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void deleteBook(Book book) {
-
+        db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, KEY_ROWID + "=" + book.getId(), null);
     }
 }
