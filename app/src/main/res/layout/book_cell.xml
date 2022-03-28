@@ -16,7 +16,7 @@
             android:id="@+id/bookNameTv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pride and Predjudice"
+            android:text="Pride and Prejudice"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
