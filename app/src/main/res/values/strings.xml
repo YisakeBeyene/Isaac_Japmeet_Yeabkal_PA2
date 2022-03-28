@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">Book App</string>
     <string name="title_activity_add_page_test">AddPageTest</string>
+    <string name="text">Title:</string>
+    <string name="author">Author:</string>
+    <string name="bn">Book Name</string>
+    <string name="an">Author Name</string>
+    <string name="add">Add Book</string>
+    <string name="cancel">Cancel</string>
+    <string name="update">Update Book</string>
+    <string name="list">List of Books</string>
+    <string name="delete"> Delete Book</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
