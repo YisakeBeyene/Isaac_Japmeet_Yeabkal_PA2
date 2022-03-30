@@ -30,6 +30,9 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
     private Context context;
     SQLiteDatabase db;
 
+    String[] starterBookTitle = {"The Hobbit", "The Da Vinci Code", "The Official Highway Code", "Fifty Shades of Grey", "To Kill a Mockingbird", "Jamie’s 15 minute meals", "Great Expectations", "Animal Farm", "1984", "The BFG"};
+    String[] starterBookAuthor = {"J R R Tolkien", "Dan Brown", "Department for Transport", "E L James", "Harper Lee", "Jamie Oliver", "Charles Dickens", "George Orwell", "George Orwell", "Roald Dahl"};
+
     public static synchronized BookSQLiteHelper getInstance(Context context) {
         if (dbInstance == null) {
             dbInstance = new BookSQLiteHelper(context.getApplicationContext());
@@ -44,7 +47,6 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db = getWritableDatabase();
         String query  = "CREATE TABLE " + TABLE_NAME + " (" +
                          KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                          KEY_ROWTITLE + " TEXT NOT NULL, " +
@@ -56,28 +58,11 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
 
-        initDatabase(db);
-
-    }
-
-    // Add sample data when first creating database
-    protected void initDatabase(SQLiteDatabase db) {
-        ArrayList<Book> bookListSample = new ArrayList<>();
-
-        bookListSample.add(new Book("The Hobbit", "J R R Tolkien"));
-        bookListSample.add(new Book("The Da Vinci Code", "Dan Brown"));
-        bookListSample.add(new Book("The Official Highway Code", "Department for Transport"));
-        bookListSample.add(new Book("Fifty Shades of Grey", "E L James"));
-        bookListSample.add(new Book("To Kill a Mockingbird", "Harper Lee"));
-        bookListSample.add(new Book("Jamie’s 15 minute meals", "Jamie Oliver"));
-        bookListSample.add(new Book("The BFG", "Roald Dahl"));
-        bookListSample.add(new Book("Great Expectations", "Charles Dickens"));
-        bookListSample.add(new Book("Animal Farm", "George Orwell"));
-        bookListSample.add(new Book("1984", "George Orwell"));
-
-        for (Book book : bookListSample) {
+        for(int i=0; i<starterBookTitle.length; i++){
+            Book book = new Book(starterBookTitle[i], starterBookAuthor[i]);
             insertBookDB(db, book);
         }
+
     }
 
     @Override
