@@ -21,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
     BookSQLiteHelper myDB;
     ArrayList<Book> listOfBooks;
 
-    String monthNames[] = {"January","February","March","April","May","June","July","August","September","October","November","December",
-            "January","February","March","April","May","June","July",  "August","September","October","November","December"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

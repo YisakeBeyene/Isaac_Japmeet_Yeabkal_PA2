@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 public class BookSQLiteHelper extends SQLiteOpenHelper {
 
+    private static BookSQLiteHelper dbInstance;
+
     static final String DATABASE_NAME = "BookLibrary.db";
     static final int DATABASE_VERSION = 1;
 
@@ -28,6 +30,13 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
     private Context context;
     SQLiteDatabase db;
 
+    public static synchronized BookSQLiteHelper getInstance(Context context) {
+        if (dbInstance == null) {
+            dbInstance = new BookSQLiteHelper(context.getApplicationContext());
+        }
+        return dbInstance;
+    }
+
     public BookSQLiteHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
@@ -35,15 +44,39 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query  = "create table " + TABLE_NAME +
-                                     " (" + KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                                     KEY_ROWTITLE + " TEXT NOT NULL, " +
-                                     KEY_ROWAUTHOR + " TEXT NOT NULL);";
+        db = getWritableDatabase();
+        String query  = "CREATE TABLE " + TABLE_NAME + " (" +
+                         KEY_ROWID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                         KEY_ROWTITLE + " TEXT NOT NULL, " +
+                         KEY_ROWAUTHOR + " TEXT NOT NULL);";
 
         try{
             db.execSQL(query);
         }catch (SQLException e){
             e.printStackTrace();
+        }
+
+        initDatabase(db);
+
+    }
+
+    // Add sample data when first creating database
+    protected void initDatabase(SQLiteDatabase db) {
+        ArrayList<Book> bookListSample = new ArrayList<>();
+
+        bookListSample.add(new Book("The Hobbit", "J R R Tolkien"));
+        bookListSample.add(new Book("The Da Vinci Code", "Dan Brown"));
+        bookListSample.add(new Book("The Official Highway Code", "Department for Transport"));
+        bookListSample.add(new Book("Fifty Shades of Grey", "E L James"));
+        bookListSample.add(new Book("To Kill a Mockingbird", "Harper Lee"));
+        bookListSample.add(new Book("Jamie’s 15 minute meals", "Jamie Oliver"));
+        bookListSample.add(new Book("The BFG", "Roald Dahl"));
+        bookListSample.add(new Book("Great Expectations", "Charles Dickens"));
+        bookListSample.add(new Book("Animal Farm", "George Orwell"));
+        bookListSample.add(new Book("1984", "George Orwell"));
+
+        for (Book book : bookListSample) {
+            insertBookDB(db, book);
         }
     }
 
@@ -55,18 +88,24 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addBook(Book newBook) {
-        db = this.getWritableDatabase();
+    private void insertBookDB(SQLiteDatabase db, Book book) {
         ContentValues cv = new ContentValues();
+        cv.put(KEY_ROWTITLE, book.getTitle());
+        cv.put(KEY_ROWAUTHOR, book.getAuthor());
 
-        cv.put(KEY_ROWTITLE, newBook.getTitle());
-        cv.put(KEY_ROWAUTHOR, newBook.getAuthor());
         long result = db.insert(TABLE_NAME, null, cv);
         if(result == -1){
             Toast.makeText(context, "Failed", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(context, "Successfull", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void addBook(Book newBook) {
+        db = this.getWritableDatabase();
+
+        insertBookDB(db, newBook);
+        db.close();
     }
 
     public Book searchBook(int id) {
