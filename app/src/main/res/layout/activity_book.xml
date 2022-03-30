@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BookActivity">
+    tools:context=".BookActivity"
+    android:background="@drawable/background2">
 
     <RelativeLayout
         android:id="@+id/add_book_relativelayout"
@@ -27,7 +28,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:padding="10dp"
-            android:text="Title: Pride and Prejudice"
+            android:text="@string/title_pride_and_prejudice"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -40,7 +41,7 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:padding="10dp"
-            android:text="Author: Jane Austen"
+            android:text="@string/author_jane_austen"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -53,7 +54,7 @@
             android:layout_marginStart="25dp"
             android:backgroundTint="@color/teal_700"
             android:padding="10dp"
-            android:text="@string/delete"/>
+            android:text="@string/delete" />
 
 
         <LinearLayout
@@ -80,6 +81,7 @@
                 android:layout_marginEnd="12dp"
                 android:ems="10"
                 android:hint="@string/bn"
+                android:textColorHint="#757575"
                 tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
@@ -121,19 +123,6 @@
             android:padding="10dp"
             android:text="@string/update" />
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/cancel_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#ba160c"
-        android:padding="10dp"
-        android:text="@string/cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

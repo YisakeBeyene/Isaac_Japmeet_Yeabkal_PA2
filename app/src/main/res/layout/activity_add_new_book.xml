@@ -4,15 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddNewBook">
+    tools:context=".AddNewBook"
+    android:background="@drawable/background2">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3">
+        app:layout_constraintVertical_bias="0.25">
 
         <TextView
             android:id="@+id/textView2"
@@ -33,7 +36,8 @@
             android:layout_marginEnd="16dp"
             android:layout_toRightOf="@+id/textView2"
             android:hint="@string/bn"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
 
         <TextView
             android:id="@+id/textView3"
@@ -55,7 +59,8 @@
             android:layout_marginEnd="16dp"
             android:layout_toRightOf="@+id/textView3"
             android:hint="@string/an"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
 
 
         <Button
@@ -67,21 +72,8 @@
             android:layout_marginTop="50dp"
             android:backgroundTint="@color/teal_700"
             android:padding="10dp"
-            android:text="@string/add" />
+            android:text="@string/add"
+            android:textColor="#000000" />
     </RelativeLayout>
-
-
-    <Button
-        android:id="@+id/cancel_button_newbook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#ba160c"
-        android:padding="10dp"
-        android:text="@string/cancel"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

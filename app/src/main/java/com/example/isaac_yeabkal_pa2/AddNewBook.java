@@ -11,7 +11,6 @@ import android.widget.EditText;
 public class AddNewBook extends AppCompatActivity {
 
     EditText etTitle, etAuthor;
-    Button cancleButton;
     Button addBookButton;
 
     @Override
@@ -21,7 +20,6 @@ public class AddNewBook extends AppCompatActivity {
 
         etTitle = (EditText) findViewById(R.id.update_title_editText);
         etAuthor = (EditText) findViewById(R.id.editTextAuthor);
-        cancleButton = (Button) findViewById(R.id.cancel_button_newbook);
         addBookButton = (Button) findViewById(R.id.add_book_button);
 
         addBookButton.setOnClickListener(new View.OnClickListener() {
@@ -31,14 +29,6 @@ public class AddNewBook extends AppCompatActivity {
                 Book newBook = new Book(etTitle.getText().toString().trim(),
                         etAuthor.getText().toString().trim());
                 myDB.addBook(newBook);
-                Intent intent = new Intent(AddNewBook.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        cancleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
                 Intent intent = new Intent(AddNewBook.this, MainActivity.class);
                 startActivity(intent);
             }

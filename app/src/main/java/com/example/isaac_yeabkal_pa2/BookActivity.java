@@ -20,7 +20,6 @@ public class BookActivity extends AppCompatActivity {
     EditText updateAuthorEditText;
     Button updateBookButton;
     Button deleteBookButton;
-    Button cancelButton;
 
     Book book;
     BookSQLiteHelper myDB;
@@ -36,7 +35,6 @@ public class BookActivity extends AppCompatActivity {
         updateAuthorEditText = (EditText) findViewById(R.id.update_author_editText);
         updateBookButton = (Button) findViewById(R.id.update_book_button);
         deleteBookButton = (Button) findViewById(R.id.delete_book_button);
-        cancelButton = (Button) findViewById(R.id.cancel_button);
 
         getAndSetIntentData();
 
