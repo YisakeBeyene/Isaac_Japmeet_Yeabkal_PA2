@@ -30,8 +30,8 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
     private Context context;
     SQLiteDatabase db;
 
-    String[] starterBookTitle = {"The Hobbit", "The Da Vinci Code", "The Official Highway Code", "Fifty Shades of Grey", "To Kill a Mockingbird", "Jamie’s 15 minute meals", "Great Expectations", "Animal Farm", "1984", "The BFG"};
-    String[] starterBookAuthor = {"J R R Tolkien", "Dan Brown", "Department for Transport", "E L James", "Harper Lee", "Jamie Oliver", "Charles Dickens", "George Orwell", "George Orwell", "Roald Dahl"};
+    String[] starterBookTitle = {"The Hobbit", "The Da Vinci Code", "The Official Highway Code", "Fifty Shades of Grey", "To Kill a Mockingbird", "Jamie’s 15 minute meals", "Great Expectations", "Animal Farm", "1984", "The BFG", "Harry Potter and the Goblet of Fire", "Harry Potter and the Prisoner of Azkaban", "The Lion, The Witch and The Wardrobe", "Pride and Prejudice", "The Hitchhiker's Guide to the Galaxy", "The Girl with the Dragon Tattoo", "Bridget Jones's Diary", "Little Women", "Romeo and Juliet", "Dracula", "The Secret Garden", "George's Marvellous Medicine", "Time Travellers Wife", "The Hunger Games", "The Catcher in the Rye", "David Copperfield"};
+    String[] starterBookAuthor = {"J R R Tolkien", "Dan Brown", "Department for Transport", "E L James", "Harper Lee", "Jamie Oliver", "Charles Dickens", "George Orwell", "George Orwell", "Roald Dahl", "JK Rowling", "JK Rowling", "CS Lewis", "Jane Austen", "JRR Tolkein", "Douglas Adams", "Stieg Larsson", "Helen Fielding", "Louisa May Alcott", "William Shakespeare", "Bram Stoker", "Frances Hodgson Burnett", "Roald Dahl", "Audrey Niffenegger", "Suzanne Collins", "J.D Salinger", "Charles Dickens"};  };
 
     public static synchronized BookSQLiteHelper getInstance(Context context) {
         if (dbInstance == null) {
