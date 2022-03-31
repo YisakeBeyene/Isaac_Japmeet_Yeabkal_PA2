@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddNewBook"
-    android:background="@drawable/background2">
+    android:background="@drawable/background">
 
 
     <RelativeLayout
@@ -34,10 +34,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2"
             android:hint="@string/bn"
+            android:inputType="textUri|textShortMessage|textLongMessage"
             android:minHeight="48dp"
-            android:textColorHint="#757575" />
+            android:textColorHint="#757575"
+            tools:ignore="TextContrastCheck"
+            android:autofillHints="" />
 
         <TextView
             android:id="@+id/textView3"
@@ -57,10 +60,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/update_title_editText"
             android:layout_marginEnd="16dp"
-            android:layout_toRightOf="@+id/textView3"
+            android:layout_toEndOf="@+id/textView3"
             android:hint="@string/an"
+            android:inputType="textShortMessage|textLongMessage"
             android:minHeight="48dp"
-            android:textColorHint="#757575" />
+            android:textColorHint="#757575"
+            tools:ignore="TextContrastCheck"
+            android:autofillHints="" />
 
 
         <Button
@@ -73,7 +79,8 @@
             android:backgroundTint="@color/teal_700"
             android:padding="10dp"
             android:text="@string/add"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            tools:ignore="TextContrastCheck" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

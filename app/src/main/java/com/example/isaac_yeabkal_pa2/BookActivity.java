@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 public class BookActivity extends AppCompatActivity {
 
-
-
     TextView titleTextView;
     TextView authorTextView;
     EditText updateTitleEditText;
@@ -38,6 +36,8 @@ public class BookActivity extends AppCompatActivity {
 
         getAndSetIntentData();
 
+
+        //Onclick listener for the Update Book button
         updateBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +51,7 @@ public class BookActivity extends AppCompatActivity {
             }
         });
 
+        //Onclick listener for the Delete Book button
         deleteBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +66,7 @@ public class BookActivity extends AppCompatActivity {
         });
     }
 
+    //Method to get the name and title of the book clicked and display them
     private void getAndSetIntentData() {
         Intent intentFromMain = getIntent();
         book = (Book) intentFromMain.getSerializableExtra("BOOK");

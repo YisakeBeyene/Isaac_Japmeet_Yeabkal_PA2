@@ -118,6 +118,7 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
             listOfBooks.add(book);
         }
 
+        db.close();
         return listOfBooks;
     }
 
@@ -134,10 +135,13 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
         }else {
             Toast.makeText(context, "Successfull", Toast.LENGTH_SHORT).show();
         }
+
+        db.close();
     }
 
     public void deleteBook(Book book) {
         db = this.getWritableDatabase();
         db.delete(TABLE_NAME, KEY_ROWID + "=" + book.getId(), null);
+        db.close();
     }
 }

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".BookActivity"
-    android:background="@drawable/background2">
+    android:background="@drawable/background">
 
     <RelativeLayout
         android:id="@+id/add_book_relativelayout"
@@ -54,7 +54,8 @@
             android:layout_marginStart="25dp"
             android:backgroundTint="@color/teal_700"
             android:padding="10dp"
-            android:text="@string/delete" />
+            android:text="@string/delete"
+            tools:ignore="TextContrastCheck" />
 
 
         <LinearLayout
@@ -79,9 +80,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
+                android:autofillHints=""
                 android:ems="10"
                 android:hint="@string/bn"
-                android:textColorHint="#757575"
+                android:inputType="textUri|textShortMessage"
+                android:textColorHint="#37474F"
                 tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
@@ -108,7 +111,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
+                android:autofillHints=""
                 android:hint="@string/an"
+                android:inputType="textUri|textShortMessage"
+                android:textColorHint="#37474F"
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
@@ -121,7 +127,8 @@
             android:layout_marginStart="25dp"
             android:backgroundTint="@color/teal_700"
             android:padding="10dp"
-            android:text="@string/update" />
+            android:text="@string/update"
+            tools:ignore="TextContrastCheck" />
     </RelativeLayout>
 
 
