@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
@@ -60,7 +59,7 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
 
         for(int i=0; i<starterBookTitle.length; i++){
             Book book = new Book(starterBookTitle[i], starterBookAuthor[i]);
-            insertBookDB(db, book);
+            insertBook(db, book);
         }
 
     }
@@ -73,7 +72,15 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private void insertBookDB(SQLiteDatabase db, Book book) {
+    public void addBook(Book newBook) {
+        db = this.getWritableDatabase();
+
+        insertBook(db, newBook);
+        db.close();
+    }
+
+    private void insertBook(SQLiteDatabase db, Book book) {
+
         ContentValues cv = new ContentValues();
         cv.put(KEY_ROWTITLE, book.getTitle());
         cv.put(KEY_ROWAUTHOR, book.getAuthor());
@@ -86,16 +93,27 @@ public class BookSQLiteHelper extends SQLiteOpenHelper {
         }
     }
 
-    public void addBook(Book newBook) {
-        db = this.getWritableDatabase();
-
-        insertBookDB(db, newBook);
-        db.close();
-    }
 
     public Book searchBook(int id) {
 
-        return null;
+        db = getReadableDatabase();
+
+        String book_search = KEY_ROWID + " = " + id;
+        String[] book_variables = {KEY_ROWID, KEY_ROWTITLE, KEY_ROWAUTHOR};
+        Cursor cursor = db.query(TABLE_NAME, book_variables, book_search, null,null, null, null);
+        Book book = null;
+        try {
+            if (cursor.moveToFirst()) {
+                String title = cursor.getString(cursor.getColumnIndexOrThrow(KEY_ROWTITLE));
+                String author = cursor.getString(cursor.getColumnIndexOrThrow(KEY_ROWAUTHOR));
+                book = new Book(title, author);
+            }
+        } finally {
+            cursor.close();
+        }
+        db.close();
+        return book;
+
     }
 
     public ArrayList<Book> getAllBooks() {
