@@ -13,6 +13,10 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+//Isaac Beyene
+//Japmeet Bendi
+//Yeabkal Biru
+
 public class BookSQLiteHelper extends SQLiteOpenHelper {
 
     private static BookSQLiteHelper dbInstance;

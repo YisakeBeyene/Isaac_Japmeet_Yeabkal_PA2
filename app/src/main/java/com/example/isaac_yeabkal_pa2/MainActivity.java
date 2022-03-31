@@ -12,6 +12,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+//Isaac Beyene
+//Japmeet Bendi
+//Yeabkal Biru
+
 public class MainActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;

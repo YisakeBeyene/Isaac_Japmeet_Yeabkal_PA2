@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+//Isaac Beyene
+//Japmeet Bendi
+//Yeabkal Biru
+
 public class AddNewBook extends AppCompatActivity {
 
     EditText etTitle, etAuthor;
